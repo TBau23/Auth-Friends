@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 
 import './App.css';
@@ -24,8 +24,8 @@ function App() {
         </ul>
         <h1>Authentication Practice</h1>
         <Switch>
-          <Route path='/userpage' component={UserPage}/>
-          <Route path='/login'>
+          <PrivateRoute exact path='/userpage' component={UserPage} />
+          <Route exact path='/login'>
             <Login />
           </Route>
         </Switch>
