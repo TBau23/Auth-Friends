@@ -19,9 +19,12 @@ code {
   padding: 2%;
   width: 30%;
   margin: 5% auto;
-  
 }
 
 .form input {
   margin: 2% 0;
+}
+
+li {
+  list-style: none;
 }

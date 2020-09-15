@@ -1,36 +1,37 @@
 import React, { useState } from 'react';
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+
 import './App.css';
+
+import Login from './components/Login'
+import UserPage from './components/UserPage'
+import PrivateRoute from './components/PrivateRoute'
+
 
 function App() {
 
-  const [credentials, setCredentials] = useState()
-
-
-
+  
   return (
-    <div className="App">
-      <h1>Authentication Practice</h1>
-      <form className='form'>
-        <h2>Login</h2>
-        <label>Username: &nbsp;
-          <input 
-          type = 'text'
-          name = 'username'
-
-          />
-
-        </label>
-
-        <label>Password: &nbsp;
-          <input 
-          type = 'password'
-          name='password'
-          />
-
-        </label>
-      </form>
-
-    </div>
+    <Router>
+      <div className="App">
+        <ul>
+          <li>
+            <Link to='/login' >Login</Link>
+          </li>
+          <li>
+            <Link to='/userpage'>Your Homepage</Link>
+          </li>
+        </ul>
+        <h1>Authentication Practice</h1>
+        <Switch>
+          <Route path='/userpage' component={UserPage}/>
+          <Route path='/login'>
+            <Login />
+          </Route>
+        </Switch>
+        
+      </div>
+    </Router>
   );
 }
 
