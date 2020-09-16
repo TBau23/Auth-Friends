@@ -25,9 +25,7 @@ function App() {
         <h1>Authentication Practice</h1>
         <Switch>
           <PrivateRoute exact path='/userpage' component={UserPage} />
-          <Route exact path='/login'>
-            <Login />
-          </Route>
+          <Route exact path='/login' component={Login}/>
         </Switch>
         
       </div>

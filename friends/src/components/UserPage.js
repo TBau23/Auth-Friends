@@ -1,6 +1,7 @@
 import React from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
+import AddFriend from './AddFriend'
 
 class UserPage extends React.Component  {
 
@@ -21,7 +22,6 @@ class UserPage extends React.Component  {
             this.setState({
                 friendsList: res.data
             })
-
         })
         .catch(error => {
             console.log(error)
@@ -32,9 +32,15 @@ render() {
     return(
         <div>
             <h2>Authenticated Users Only</h2>
+            <AddFriend />
             <div>
+                <h2>Your friends:</h2>
                 {this.state.friendsList.map(friend => (
-                    <h2 key={friend.id}>{friend.name}</h2>
+                    <div key={friend.id}>
+                        <h2 >{friend.name}</h2>
+                        <p>Age: {friend.age}</p>
+                        <p>Email: {friend.email}</p>
+                    </div>
                 ))}
             </div>
         </div>
